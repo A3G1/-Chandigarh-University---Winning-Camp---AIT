@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int sum_of_digit(int n)
+{
+    int sum = 0; 
+    while(n!=0) 
+    { 
+     sum=sum+n%10; 
+     n=n/10; 
+    }  
+    return sum;
+}
+int pfactor(int n)
+{   
+    int sum;
+    sum=sum_of_digit(n);
+    
+    int sum1=0;
+    int i=2;
+    while(i<sqrt(n))
+    {
+        if(n%i==0)
+        {
+            n=n/i;
+            sum1=sum1+sum_of_digit(i);
+        }
+        else
+        {
+            i++;
+        }
+    }
+    
+    if(n>1)
+    {
+        sum1=sum1+sum_of_digit(n);
+    }
+    if(sum1==sum)
+    {
+        cout<<1;
+    }
+    else
+    {
+        cout <<0;
+    }
+    return 0;
+
+}
+int main()
+{
+    int n;
+    cin>>n;
+
+    pfactor(n);
+
+    return 0;
+}
