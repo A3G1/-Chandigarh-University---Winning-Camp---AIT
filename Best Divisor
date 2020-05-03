@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+int div_sum(int n,int r=0)
+{
+        while (n > 0) {
+        r += n % 10;
+        n /= 10;
+        }
+    return r;
+}
+int main()
+{
+    int n;
+    cin >> n;
+    int max=n;
+    int bs=div_sum(n);
+    for (int i=1;i<=n/2;i++) 
+    {
+        if (n%i==0)
+        {
+            int sum=div_sum(i);
+            if((sum > bs) || (sum == bs && i < max))
+            {
+                bs=sum;
+                max=i;
+            }
+        }
+        
+    }
+    cout<<max;
+
+    return 0;
+}
