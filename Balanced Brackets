@@ -1,0 +1,120 @@
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+ 
+using namespace std;
+ 
+ 
+int main(){
+    int t;
+    cin >> t;
+    for(int a = 0; a < t; a++){
+        bool check = true;
+        string s;
+        cin >> s;
+        int temp=s.length();
+        stack < char > st;
+        for(int i=0 ; i<temp ; i++){
+            if(s[i]=='('||s[i]=='{'||s[i]=='['){
+                st.push(s[i]);
+                continue;
+            }
+            if(st.empty()) {
+                check = false;
+                break;
+            }
+            if(s[i] == ')' && st.top() == '(') st.pop();
+            else if(s[i] == ']' && st.top() == '[') st.pop();
+            else if(s[i] == '}' && st.top() == '{') st.pop();
+            else {
+                check = false ;
+                break;
+            }
+        }
+        if(check && st.empty()) printf("YES\n");
+        else printf("NO\n");
+    }
+    return 0;
+}
+
+/*#include <bits/stdc++.h>
+
+using namespace std;
+
+// Complete the isBalanced function below.
+string isBalanced(string s) {
+
+    int temp=s.length();
+    bool count=true;
+    stack<char>par;
+    for(int i=0;i<temp;i++){
+        if(s[i]=='('||s[i]=='{'||s[i]=='['){
+            par.push(s[i]);
+            continue;
+        }
+        if(par.empty()) {
+            count=false;
+            break;
+        }
+            if(s[i]==')' && par.top()=='(') 
+                par.pop();
+        
+            else if(s[i]==']' && par.top()=='[') 
+                par.pop();
+        
+            else if(s[i]=='}' && par.top()=='{') 
+                par.pop();
+        
+            else {
+                count=false ;
+                break;
+            }
+        }
+        if(count && par.empty())
+            cout<<"YES";
+        else
+            cout<<"NO";
+    
+    return 0;
+}
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    int t;
+    cin >> t;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    for (int t_itr = 0; t_itr < t; t_itr++) {
+        string s;
+        getline(cin, s);
+
+        string result = isBalanced(s);
+
+        fout << result << "\n";
+    }
+
+    fout.close();
+
+    return 0;
+}*/
