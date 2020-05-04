@@ -1,0 +1,29 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        
+        Scanner sc=new Scanner(System.in);
+        String A=sc.next();
+        String str="";
+        int flag=0;
+        int i;
+        int l=A.length();
+        /* Enter your code here. Print output to STDOUT. */
+        for(i=l-1;i>=0;i--)
+        {
+            str=str+A.charAt(i);
+        }
+        if(A.equalsIgnoreCase(str))
+        {
+            System.out.println("Yes");
+        }
+        else
+        {
+            System.out.println("No");
+        }
+    }
+}
+        
