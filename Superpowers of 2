@@ -16,6 +16,7 @@ int main()
     long long temp1 = pow(2,temp);
     long long temp3 = temp1 % b;
     */
+    
     cout << x;
     return 0;
     
